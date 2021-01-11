@@ -1,0 +1,16 @@
+{% extends "mysite/base_generic.html" %}
+
+{% block content %}
+<h1> Laundry Home</h1>
+
+  <p>Welcome to <em> Online Laundry</em>, a very basic Django website </p>
+
+<h2>Dynamic content</h2>
+
+  <p>The Laundry has the following record counts:</p>
+  <ul>
+    <li><strong>Order:</strong> {{ num_orders }}</li>
+    <li><strong>Customer:</strong> {{num_customers }}</li>
+  </ul>
+
+{% endblock %}
