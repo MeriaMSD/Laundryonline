@@ -27,6 +27,13 @@
           {% comment %} <li><a href="{% url 'mysite:order' %} ">All orders</a></li> {% endcomment %}
           {% comment %} <li><a href=" {% url 'mysite:customer' %}">All customers</a></li> {% endcomment %}
            <li><a href="/admin/">Admin Page</a></li>
+           {% if user.is_authenticated %}
+					 <li> Hello {{user.first_name }} </li>
+					 <li><a href="accounts/logout">Logout</a></li>
+					 {% else %}
+					 <li><a href="accounts/register">Register</a></li>
+           <li><a href="accounts/login">LogIn</a></li>
+           {% endif %}
       </ul>
      {% endblock %}
       </div>
