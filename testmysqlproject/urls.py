@@ -18,12 +18,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('mysite/', include('mysite.urls' , namespace="mysite")),
+# ]
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# urlpatterns += [
+#     path('accounts/', include('django.contrib.auth.urls')),
+# ]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mysite/', include('mysite.urls')),
+    path('', include('mysite.urls')),
+    # path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
-]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
